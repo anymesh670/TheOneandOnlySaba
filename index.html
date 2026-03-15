@@ -285,13 +285,13 @@
       .header h1 { font-size: 2.4rem; }
       .header .subtitle { font-size: 1rem; }
       .header .eyebrow { font-size: 0.68rem; }
-      .divider { margin: 18px 0; }
+      .divider { margin: 18px 0; justify-content: center; }
       .divider-line { max-width: 80px; }
       .cake-stage { width: 200px; height: 220px; margin: 10px auto 24px; }
       .knife-wrap { width: 68px; height: 136px; right: -42px; top: 18px; }
       .message-card { padding: 22px 18px; }
       .message-card p { font-size: 1rem; line-height: 1.75; }
-      .cta-btn { padding: 13px 28px; font-size: 0.8rem; }
+      .cta-btn { padding: 13px 28px; font-size: 0.8rem; display: block; margin-left: auto; margin-right: auto; }
       .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; grid-template-rows: auto; }
       .photo-grid > *:nth-child(3) { grid-column: 1 / 2; }
       .gallery-heading h3 { font-size: 1.25rem; }
@@ -851,7 +851,7 @@
       <p class="cert-body">is hereby officially declared</p>
       <p class="cert-title">The Bestest Sister &amp; Friend<br/>in the Whole World</p>
       <div class="cert-rule"></div>
-      <p class="cert-sub">Awarded with love, pride, and zero objectivity<br/>on this most glorious day of her birth</p>
+      <p class="cert-sub">Awarded with love, pride, and honesty<br/>on this most glorious day of her birth</p>
       <span class="cert-seal">🌸</span>
       <p class="cert-sign">— Sealed &amp; Delivered with All My Love</p>
     </div>
@@ -861,6 +861,21 @@
 <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:#b09090; letter-spacing:0.08em; text-align:center; margin:18px 0 0;">
   ↓ &nbsp; Scroll down, there's more things waiting for you &nbsp; ↓
 </p>
+  <!-- Divider -->
+  <div class="divider" style="margin:28px 0 10px;">
+    <div class="divider-line"></div>
+    <div class="divider-diamond"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- Button -->
+  <button class="cta-btn" id="confettiBtn">
+    <span>🎉 &nbsp; Celebrate!</span>
+  </button>
+
+<div class="divider" style="margin:40px 0 10px;">
+  <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+</div>
 <div class="lantern-section">
   <div class="gallery-heading" style="margin-bottom:14px;">
     <p>✦ Make A Wish ✦</p>
@@ -1297,7 +1312,7 @@ function popBalloon(b){
   if(b.el.parentNode)b.el.remove();
   activeBalloons=activeBalloons.filter(x=>x!==b);
 gScore++;scoreEl.textContent=gScore;
-if (navigator.vibrate) navigator.vibrate(60);
+if (navigator.vibrate) navigator.vibrate(60);if (navigator.vibrate) navigator.vibrate(60);
   const burst=document.createElement('div');burst.className='pop-burst';burst.textContent='💥';burst.style.cssText=`position:absolute;left:${px}px;top:${py}px;`;arena.appendChild(burst);setTimeout(()=>burst.remove(),520);
   const sp=document.createElement('div');sp.className='score-pop';sp.textContent='+1';sp.style.cssText=`position:absolute;left:${px+10}px;top:${py}px;`;arena.appendChild(sp);setTimeout(()=>sp.remove(),950);
   launchConfetti(rect.left+rect.width/2,rect.top,12);
@@ -1306,6 +1321,46 @@ if (navigator.vibrate) navigator.vibrate(60);
 document.getElementById('gameStartBtn').addEventListener('click',(e)=>{e.stopPropagation();startGame();});
 document.getElementById('gameRestartBtn').addEventListener('click',(e)=>{e.stopPropagation();startGame();});
   /* ══════════════════════════════════
+   ROSE PETALS
+══════════════════════════════════ */
+(function spawnPagePetals() {
+  const petalColors = ['#e8b4b8','#f7dce0','#d4829a','#f9c8bb','#c9a84c','#6b2737'];
+
+  function createPetal() {
+    const el = document.createElement('div');
+    el.className = 'petal';
+
+    if (Math.random() < 0.25) {
+      // emoji petal
+      el.textContent = ['🌸','🌺','🌷'][Math.floor(Math.random() * 3)];
+      el.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    } else {
+      // shaped petal
+      el.style.width  = (Math.random() * 12 + 8) + 'px';
+      el.style.height = (Math.random() * 8  + 5) + 'px';
+      el.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+      el.style.borderRadius = Math.random() < 0.5 ? '50% 0 50% 0' : '50% 50% 0 50%';
+      el.style.opacity = (Math.random() * 0.4 + 0.55).toString();
+    }
+
+    el.style.left = (Math.random() * 105) + 'vw';
+    el.style.top  = '-24px';
+    const dur = Math.random() * 6 + 6;
+    el.style.animation = `petalFall ${dur}s linear forwards`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000 + 200);
+  }
+
+  // staggered initial shower
+  for (let i = 0; i < 22; i++) {
+    setTimeout(createPetal, i * 180);
+  }
+
+  // gentle continuous drizzle, stops after 25s
+  const iv = setInterval(createPetal, 420);
+  setTimeout(() => clearInterval(iv), 25000);
+})();
+/* ══════════════════════════════════
    ROSE PETALS
 ══════════════════════════════════ */
 (function spawnPagePetals() {
