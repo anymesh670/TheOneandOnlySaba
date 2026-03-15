@@ -1213,6 +1213,7 @@ function popBalloon(b){
   if(b.el.parentNode)b.el.remove();
   activeBalloons=activeBalloons.filter(x=>x!==b);
   gScore++;scoreEl.textContent=gScore;
+if (navigator.vibrate) navigator.vibrate(60);
   const burst=document.createElement('div');burst.className='pop-burst';burst.textContent='💥';burst.style.cssText=`position:absolute;left:${px}px;top:${py}px;`;arena.appendChild(burst);setTimeout(()=>burst.remove(),520);
   const sp=document.createElement('div');sp.className='score-pop';sp.textContent='+1';sp.style.cssText=`position:absolute;left:${px+10}px;top:${py}px;`;arena.appendChild(sp);setTimeout(()=>sp.remove(),950);
   launchConfetti(rect.left+rect.width/2,rect.top,12);
@@ -1220,6 +1221,46 @@ function popBalloon(b){
 
 document.getElementById('gameStartBtn').addEventListener('click',(e)=>{e.stopPropagation();startGame();});
 document.getElementById('gameRestartBtn').addEventListener('click',(e)=>{e.stopPropagation();startGame();});
+  /* ══════════════════════════════════
+   ROSE PETALS
+══════════════════════════════════ */
+(function spawnPagePetals() {
+  const petalColors = ['#e8b4b8','#f7dce0','#d4829a','#f9c8bb','#c9a84c','#6b2737'];
+
+  function createPetal() {
+    const el = document.createElement('div');
+    el.className = 'petal';
+
+    if (Math.random() < 0.25) {
+      // emoji petal
+      el.textContent = ['🌸','🌺','🌷'][Math.floor(Math.random() * 3)];
+      el.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    } else {
+      // shaped petal
+      el.style.width  = (Math.random() * 12 + 8) + 'px';
+      el.style.height = (Math.random() * 8  + 5) + 'px';
+      el.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+      el.style.borderRadius = Math.random() < 0.5 ? '50% 0 50% 0' : '50% 50% 0 50%';
+      el.style.opacity = (Math.random() * 0.4 + 0.55).toString();
+    }
+
+    el.style.left = (Math.random() * 105) + 'vw';
+    el.style.top  = '-24px';
+    const dur = Math.random() * 6 + 6;
+    el.style.animation = `petalFall ${dur}s linear forwards`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000 + 200);
+  }
+
+  // staggered initial shower
+  for (let i = 0; i < 22; i++) {
+    setTimeout(createPetal, i * 180);
+  }
+
+  // gentle continuous drizzle, stops after 25s
+  const iv = setInterval(createPetal, 420);
+  setTimeout(() => clearInterval(iv), 25000);
+})();
 </script>
 </body>
 </html>
