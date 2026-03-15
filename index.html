@@ -36,14 +36,15 @@
 
     /* ── Background ornament ── */
     .bg-ornament {
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, #f9e8d0 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 100% 100%, #f5d5dc 0%, transparent 55%),
-        radial-gradient(ellipse 40% 30% at 0% 80%, #fce8cc 0%, transparent 50%);
-      z-index: 0;
-    }
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, #f9e8d0 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 100% 100%, #f5d5dc 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 0% 80%, #fce8cc 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
 
     /* ── Main Container ── */
     .container {
@@ -580,6 +581,46 @@
 @media (max-width: 480px) {
   .cats-grid { grid-template-columns: repeat(2, 1fr); }
 }
+.rate-section{width:100%;max-width:520px;margin:40px auto 10px;text-align:center;}
+.rate-sub{font-size:0.9rem;color:#9a7070;letter-spacing:0.06em;margin-bottom:24px;}
+.rate-wrap{background:white;border:1px solid rgba(201,168,76,0.3);border-radius:12px;padding:30px 36px;box-shadow:0 8px 36px rgba(107,39,55,0.07);}
+.saba-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;background:linear-gradient(to right,var(--wine),var(--gold));border-radius:3px;outline:none;cursor:pointer;margin-bottom:20px;}
+.saba-slider::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;background:var(--wine);border-radius:50%;border:3px solid var(--gold);cursor:pointer;box-shadow:0 2px 8px rgba(107,39,55,0.3);transition:transform 0.2s;}
+.saba-slider::-webkit-slider-thumb:hover{transform:scale(1.2);}
+.rate-display{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--wine);line-height:1;}
+.rate-display small{font-size:1.2rem;color:#b09090;}
+.rate-verdict{margin-top:12px;font-style:italic;color:var(--gold);font-size:1rem;letter-spacing:0.05em;min-height:24px;}
+.cert-section{width:100%;max-width:560px;margin:40px auto 10px;text-align:center;}
+.certificate{background:#fffdf7;border:3px solid var(--gold);border-radius:6px;padding:6px;box-shadow:0 12px 60px rgba(107,39,55,0.12);}
+.cert-inner{border:1.5px solid rgba(201,168,76,0.5);padding:38px 32px 30px;position:relative;background:#fffdf7;}
+.cert-corner{position:absolute;font-size:1.5rem;color:var(--gold);}
+.cert-corner.tl{top:10px;left:14px}.cert-corner.tr{top:10px;right:14px}
+.cert-corner.bl{bottom:10px;left:14px}.cert-corner.br{bottom:10px;right:14px}
+.cert-eyebrow{font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.cert-name{font-family:'Playfair Display',serif;font-size:3rem;font-style:italic;color:var(--wine);line-height:1.1;margin-bottom:10px;}
+.cert-body{font-size:0.82rem;color:#7a5a5a;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+.cert-title{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--deep);line-height:1.55;margin-bottom:18px;font-style:italic;}
+.cert-rule{height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:16px 0;}
+.cert-sub{font-size:0.76rem;color:#9a7a7a;letter-spacing:0.06em;line-height:1.9;margin-bottom:18px;}
+.cert-seal{font-size:2.8rem;display:block;margin:0 auto 10px;}
+.cert-sign{font-family:'Playfair Display',serif;font-style:italic;color:var(--wine);font-size:0.95rem;}  
+.lantern-section{width:100%;max-width:520px;margin:40px auto 10px;text-align:center;position:relative;z-index:1;}
+.wish-input-wrap{display:flex;gap:10px;margin-bottom:16px;}
+.wish-input{flex:1;padding:13px 18px;border:1.5px solid rgba(201,168,76,0.5);border-radius:4px;background:white;font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--deep);outline:none;transition:border-color 0.3s;}
+.wish-input:focus{border-color:var(--wine);}
+.wish-input::placeholder{color:#c0a0a0;}
+.wish-btn{padding:13px 22px;background:var(--wine);color:#fdf0e8;border:none;border-radius:4px;font-family:'Cormorant Garamond',serif;font-size:0.9rem;letter-spacing:0.1em;cursor:pointer;transition:background 0.3s;white-space:nowrap;}
+.wish-btn:hover{background:#8a1f35;}
+.lantern-sky{width:100%;height:400px;position:relative;overflow:hidden;background:linear-gradient(to top,#1a0520,#2d0a3a,#0a0015);border-radius:12px;border:1.5px solid rgba(201,168,76,0.2);}
+.lantern-sky::before{content:'';position:absolute;inset:0;background-image:radial-gradient(1px 1px at 15% 25%,rgba(255,255,255,0.8),transparent),radial-gradient(1px 1px at 55% 12%,rgba(255,255,255,0.6),transparent),radial-gradient(1.5px 1.5px at 78% 38%,rgba(255,255,255,0.9),transparent),radial-gradient(1px 1px at 38% 58%,rgba(255,255,255,0.5),transparent),radial-gradient(1px 1px at 8% 68%,rgba(255,255,255,0.7),transparent),radial-gradient(1px 1px at 88% 22%,rgba(255,255,255,0.6),transparent),radial-gradient(1px 1px at 48% 78%,rgba(255,255,255,0.4),transparent),radial-gradient(1px 1px at 68% 50%,rgba(255,255,255,0.7),transparent),radial-gradient(1px 1px at 25% 42%,rgba(255,255,255,0.5),transparent),radial-gradient(1.5px 1.5px at 92% 82%,rgba(255,255,255,0.6),transparent);}
+.sky-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:rgba(255,220,180,0.35);font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;gap:12px;pointer-events:none;}
+.sky-placeholder span{font-size:2.8rem;}
+.lantern-el{position:absolute;bottom:-90px;display:flex;flex-direction:column;align-items:center;animation:lanternFloat 8s ease-in forwards;pointer-events:none;}
+.lantern-glow{width:52px;height:68px;background:radial-gradient(ellipse at 50% 55%,#ffe47a,#ff9500,rgba(180,60,0,0));border-radius:40% 40% 50% 50%;box-shadow:0 0 28px 10px rgba(255,170,0,0.45),0 0 55px 20px rgba(255,90,0,0.18);animation:lanternSway 3s ease-in-out infinite;}
+.lantern-glow::after{content:'';position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);width:2px;height:14px;background:rgba(255,200,100,0.45);border-radius:2px;}
+.lantern-wish-text{margin-top:9px;background:rgba(255,255,255,0.1);color:#fde8c0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.72rem;letter-spacing:0.04em;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,200,100,0.18);max-width:130px;word-wrap:break-word;text-align:center;line-height:1.45;}
+@keyframes lanternFloat{0%{bottom:-90px;opacity:0}10%{opacity:1}85%{opacity:0.75}100%{bottom:105%;opacity:0}}
+@keyframes lanternSway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}  
   </style>
 </head>
 <body>
@@ -780,7 +821,46 @@
 
   </div>
 </div>
-
+<div class="divider" style="margin:40px 0 10px;">
+  <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+</div>
+<div class="rate-section">
+  <div class="gallery-heading" style="margin-bottom:10px;">
+    <p>✦ Official Rating ✦</p>
+    <h3>Rate Saba</h3>
+  </div>
+  <p class="rate-sub">Drag the slider to rate her... honestly 👀</p>
+  <div class="rate-wrap">
+    <input type="range" id="sabaSlider" min="0" max="100" value="0" class="saba-slider"/>
+    <div class="rate-display"><span id="rateVal">0</span><small> /100</small></div>
+    <p class="rate-verdict" id="rateVerdict"></p>
+  </div>
+</div>
+</div>
+<div class="cert-section">
+  <div class="gallery-heading" style="margin-bottom:20px;">
+    <p>✦ Official Document ✦</p>
+    <h3>Certificate of Amazingness</h3>
+  </div>
+  <div class="certificate">
+    <div class="cert-inner">
+      <span class="cert-corner tl">❧</span><span class="cert-corner tr">❧</span>
+      <span class="cert-corner bl">❧</span><span class="cert-corner br">❧</span>
+      <p class="cert-eyebrow">This Certifies That</p>
+      <h2 class="cert-name">Saba</h2>
+      <p class="cert-body">is hereby officially declared</p>
+      <p class="cert-title">The Bestest Sister &amp; Friend<br/>in the Whole World</p>
+      <div class="cert-rule"></div>
+      <p class="cert-sub">Awarded with love, pride, and zero objectivity<br/>on this most glorious day of her birth</p>
+      <span class="cert-seal">🌸</span>
+      <p class="cert-sign">— Sealed &amp; Delivered with All My Love</p>
+    </div>
+  </div>
+  <button class="cta-btn" onclick="printCert()" style="margin-top:20px;"><span>🖨 &nbsp; Print / Save</span></button>
+</div>
+<p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:#b09090; letter-spacing:0.08em; text-align:center; margin:18px 0 0;">
+  ↓ &nbsp; Scroll down, there's more things waiting for you &nbsp; ↓
+</p>
   <!-- Divider -->
   <div class="divider" style="margin:28px 0 10px;">
     <div class="divider-line"></div>
@@ -793,7 +873,26 @@
     <span>🎉 &nbsp; Celebrate!</span>
   </button>
 
-
+<div class="divider" style="margin:40px 0 10px;">
+  <div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div>
+</div>
+<div class="lantern-section">
+  <div class="gallery-heading" style="margin-bottom:14px;">
+    <p>✦ Make A Wish ✦</p>
+    <h3>Send a Lantern</h3>
+  </div>
+  <p style="font-size:0.9rem;color:#9a7070;letter-spacing:0.06em;margin-bottom:18px;">Type your wish and watch it float into the sky 🪔</p>
+  <div class="wish-input-wrap">
+    <input type="text" id="wishInput" class="wish-input" placeholder="I wish for…" maxlength="60"/>
+    <button class="wish-btn" id="wishBtn">Send ✨</button>
+  </div>
+  <div class="lantern-sky" id="lanternSky">
+    <div class="sky-placeholder" id="skyPlaceholder">
+      <span>🪔</span>
+      <p>Your lanterns will appear here</p>
+    </div>
+  </div>
+</div>
 </div>
 
 
@@ -1212,8 +1311,8 @@ function popBalloon(b){
   const px=rect.left-ar.left,py=rect.top-ar.top;
   if(b.el.parentNode)b.el.remove();
   activeBalloons=activeBalloons.filter(x=>x!==b);
-  gScore++;scoreEl.textContent=gScore;
-if (navigator.vibrate) navigator.vibrate(60);
+gScore++;scoreEl.textContent=gScore;
+if (navigator.vibrate) navigator.vibrate(60);if (navigator.vibrate) navigator.vibrate(60);
   const burst=document.createElement('div');burst.className='pop-burst';burst.textContent='💥';burst.style.cssText=`position:absolute;left:${px}px;top:${py}px;`;arena.appendChild(burst);setTimeout(()=>burst.remove(),520);
   const sp=document.createElement('div');sp.className='score-pop';sp.textContent='+1';sp.style.cssText=`position:absolute;left:${px+10}px;top:${py}px;`;arena.appendChild(sp);setTimeout(()=>sp.remove(),950);
   launchConfetti(rect.left+rect.width/2,rect.top,12);
@@ -1260,6 +1359,132 @@ document.getElementById('gameRestartBtn').addEventListener('click',(e)=>{e.stopP
   // gentle continuous drizzle, stops after 25s
   const iv = setInterval(createPetal, 420);
   setTimeout(() => clearInterval(iv), 25000);
+})();
+/* ══════════════════════════════════
+   ROSE PETALS
+══════════════════════════════════ */
+(function spawnPagePetals() {
+  const petalColors = ['#e8b4b8','#f7dce0','#d4829a','#f9c8bb','#c9a84c','#6b2737'];
+
+  function createPetal() {
+    const el = document.createElement('div');
+    el.className = 'petal';
+
+    if (Math.random() < 0.25) {
+      // emoji petal
+      el.textContent = ['🌸','🌺','🌷'][Math.floor(Math.random() * 3)];
+      el.style.fontSize = (Math.random() * 10 + 10) + 'px';
+    } else {
+      // shaped petal
+      el.style.width  = (Math.random() * 12 + 8) + 'px';
+      el.style.height = (Math.random() * 8  + 5) + 'px';
+      el.style.background = petalColors[Math.floor(Math.random() * petalColors.length)];
+      el.style.borderRadius = Math.random() < 0.5 ? '50% 0 50% 0' : '50% 50% 0 50%';
+      el.style.opacity = (Math.random() * 0.4 + 0.55).toString();
+    }
+
+    el.style.left = (Math.random() * 105) + 'vw';
+    el.style.top  = '-24px';
+    const dur = Math.random() * 6 + 6;
+    el.style.animation = `petalFall ${dur}s linear forwards`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000 + 200);
+  }
+
+  // staggered initial shower
+  for (let i = 0; i < 22; i++) {
+    setTimeout(createPetal, i * 180);
+  }
+
+  // gentle continuous drizzle, stops after 25s
+  const iv = setInterval(createPetal, 420);
+  setTimeout(() => clearInterval(iv), 25000);
+})();
+/* ── Rate Saba ── */
+(function(){
+  const slider  = document.getElementById('sabaSlider');
+  const val     = document.getElementById('rateVal');
+  const verdict = document.getElementById('rateVerdict');
+  const verdicts = [
+    'Obviously 🌸','Did you even doubt it? 💖',
+    'The scale breaks for her 👑','Not enough numbers tbh ✨',
+    '100/10, no debates 🎊','Certified legend 🏆'
+  ];
+  let t;
+  slider.addEventListener('input', () => {
+    val.textContent = slider.value;
+    verdict.textContent = '';
+    clearTimeout(t);
+    t = setTimeout(() => {
+      slider.value = 1000;
+      val.textContent = '1000';
+      verdict.textContent = verdicts[Math.floor(Math.random()*verdicts.length)];
+      launchConfetti(null, null, 35);
+    }, 550);
+  });
+})();
+/* ── Certificate Print ── */
+function printCert() {
+  const w = window.open('','_blank','width=700,height=620');
+  w.document.write(`<!DOCTYPE html><html><head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#fffdf7;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Cormorant Garamond',serif;}
+    .certificate{border:3px solid #c9a84c;border-radius:6px;padding:6px;max-width:500px;width:90%;}
+    .cert-inner{border:1.5px solid rgba(201,168,76,0.5);padding:40px 36px 32px;position:relative;text-align:center;}
+    .cert-corner{position:absolute;font-size:1.5rem;color:#c9a84c;}
+    .tl{top:10px;left:14px}.tr{top:10px;right:14px}.bl{bottom:10px;left:14px}.br{bottom:10px;right:14px}
+    .cert-eyebrow{font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:#c9a84c;margin-bottom:12px;}
+    .cert-name{font-family:'Playfair Display',serif;font-size:3rem;font-style:italic;color:#6b2737;margin-bottom:10px;}
+    .cert-body{font-size:0.82rem;color:#7a5a5a;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;}
+    .cert-title{font-family:'Playfair Display',serif;font-size:1.35rem;color:#1a0a0a;line-height:1.55;margin-bottom:18px;font-style:italic;}
+    .cert-rule{height:1px;background:linear-gradient(to right,transparent,#c9a84c,transparent);margin:16px 0;}
+    .cert-sub{font-size:0.76rem;color:#9a7a7a;letter-spacing:0.06em;line-height:1.9;margin-bottom:18px;}
+    .cert-seal{font-size:2.8rem;display:block;margin:0 auto 10px;}
+    .cert-sign{font-family:'Playfair Display',serif;font-style:italic;color:#6b2737;font-size:0.95rem;}
+  </style></head><body>
+  <div class="certificate"><div class="cert-inner">
+    <span class="cert-corner tl">❧</span><span class="cert-corner tr">❧</span>
+    <span class="cert-corner bl">❧</span><span class="cert-corner br">❧</span>
+    <p class="cert-eyebrow">This Certifies That</p>
+    <h2 class="cert-name">Saba</h2>
+    <p class="cert-body">is hereby officially declared</p>
+    <p class="cert-title">The Bestest Sister &amp; Friend<br/>in the Whole World</p>
+    <div class="cert-rule"></div>
+    <p class="cert-sub">Awarded with love, pride, and zero objectivity<br/>on this most glorious day of her birth</p>
+    <span class="cert-seal">🌸</span>
+    <p class="cert-sign">— Sealed &amp; Delivered with All My Love</p>
+  </div></div>
+  <script>window.onload=()=>window.print();<\/script>
+  </body></html>`);
+  w.document.close();
+}
+/* ── Wishing Lantern ── */
+(function(){
+  const sky         = document.getElementById('lanternSky');
+  const placeholder = document.getElementById('skyPlaceholder');
+  const input       = document.getElementById('wishInput');
+  const btn         = document.getElementById('wishBtn');
+
+  function sendLantern() {
+    const wish = input.value.trim();
+    if (!wish) { input.focus(); return; }
+
+    placeholder.style.display = 'none';
+
+    const el = document.createElement('div');
+    el.className = 'lantern-el';
+    el.style.left = (Math.random() * 68 + 10) + '%';
+    el.innerHTML = `<div class="lantern-glow"></div><div class="lantern-wish-text">${wish}</div>`;
+    sky.appendChild(el);
+    input.value = '';
+
+    setTimeout(() => el.remove(), 8500);
+  }
+
+  btn.addEventListener('click', (e) => { e.stopPropagation(); sendLantern(); });
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') sendLantern(); });
 })();
 </script>
 </body>
